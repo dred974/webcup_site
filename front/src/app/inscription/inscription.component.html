@@ -2,11 +2,11 @@
     <form (ngSubmit)="handleSubmit($event)">
         <h1>Inscrivez-vous</h1>
         <p>Nom/Prénom:</p>
-        <input id="name" type="name" name="name" ngModel placeholder="Nom prémon" required>
+        <input id="name" type="name" name="name" [(ngModel)]="user.name" placeholder="Nom prémon" required>
         <p>Email:</p>
-        <input id="email" type="email" name="email" ngModel placeholder="Entrez votre email" required>
+        <input id="email" type="email" name="email" [(ngModel)]="user.email" placeholder="Entrez votre email" required>
         <p>Mot de passe:</p>
-        <input id="password" type="password" name="password" ngModel placeholder="Créer votre mot de passe" required>
+        <input id="password" type="password" name="password" [(ngModel)]="user.password" placeholder="Créer votre mot de passe" required>
         <button class="inscription" type="submit">S'INSCRIRE</button>
         <p class="account">Déjà un compte ? <button (click)="toLogInPage()">Connectez-vous</button></p>
     </form>

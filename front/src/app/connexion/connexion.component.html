@@ -1,11 +1,17 @@
 <div class="main-content">
-    <form (ngSubmit)="handleSubmit($event)">
+    <form (ngSubmit)="handleSubmit($event)" *ngIf="!forgetPassword">
         <h1>Connectez-vous</h1>
         <p>Email:</p>
-        <input id="email" type="email" name="email" ngModel placeholder="Entrez votre email" required>
+        <input id="email" type="email" name="email" [(ngModel)]="user.email" placeholder="Entrez votre email" required>
         <p>Mot de passe:</p>
-        <input id="password" type="password" name="password" ngModel placeholder="Entrez votre mot de passe" required>
+        <input id="password" type="password" name="password"  [(ngModel)]="user.password" placeholder="Entrez votre mot de passe" required>
+        <p class="forget-password" (click)="toForgetPasswordForm(true)">Mot de passe oublié ?</p>
+        <p class="no-account">Pas de compte ? <button (click)="toSignInPage()">Inscrivez-vous</button></p>
         <button type="submit" class="connexion">SE CONNECTEZ</button>
-        <p class="no-account">Pas de compte ? <button (click)="toSignInPage($event)">Inscrivez-vous</button></p>
+    </form>
+    <form *ngIf="forgetPassword" (ngSubmit)="sendNewPassword($event, false)">
+        <h1 class="title-modif">Changez votre mot de passe</h1>
+        <input class="password" id="password" type="password" name="password"  [(ngModel)]="user.password" placeholder="Entrez votre mot de passe" required>
+        <button type="submit" class="modifiez">Modifiez</button>
     </form>
 </div>

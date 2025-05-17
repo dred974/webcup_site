@@ -5,7 +5,7 @@
     width: 25%;
     top: 190px;
     left: 38%;
-    height: 600px;
+    height: 620px;
     overflow: hidden;
     display: flex;
     text-align: center;
@@ -13,13 +13,13 @@
     h1 {
         font-size: 70px;
         position: relative;
-        left: 5%; top: 10%;
+        left: 20%; top: 10%;
     }
     p {
         font-size: 33px;
         position: relative;
         top: 15%;
-        left: 5%;
+        left: 20%;
         margin-top: 30px;
     }
     input {
@@ -28,9 +28,9 @@
         font-family: "Dancing Script", cursive;
         position: relative;
         height: 40px;
-        left: 5%;
+        left: 20%;
         top: 17%;
-        width: 90%;
+        width: 100%;
         font-size: 31px;
         border: none;
         &:hover {
@@ -41,13 +41,17 @@
             border: 2px solid #fff;
         }
     }
+    .forget-password {
+        font-size: 24px;
+        cursor: pointer;
+    }
     .connexion {
         border-radius: 4px;
         box-shadow: 0 0 5px white;
         font-weight: bold;
         cursor: pointer;
         position: relative;
-        top: 39%; left: 5%;
+        top: 20%; left: 20%;
         font-size: 20px;
         height: 7%;
         width: 50%;
@@ -60,7 +64,7 @@
         }
     }
     .no-account {
-        font-size: 21px;
+        font-size: 24px;
         button {
             background: none;
             border: none;
@@ -68,8 +72,35 @@
             color: white;
             cursor: pointer;
             font-family: "Dancing Script", cursive;
-            font-size: 20px;
+            font-size: 23px;
             text-decoration: underline;
+        }
+    }
+    .title-modif {
+        position: relative;
+        left: 1%;
+    }
+    .password {
+        position: relative;
+        left: 1%; top: 22%;
+        width: 70%;
+    }
+    .modifiez {
+        border-radius: 4px;
+        box-shadow: 0 0 5px white;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        top: 35%; left: 2%;
+        font-size: 20px;
+        height: 7%;
+        width: 50%;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+            background-color: transparent;
+            color: white;
         }
     }
 }

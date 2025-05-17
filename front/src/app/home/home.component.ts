@@ -12,7 +12,11 @@ import { HeaderComponent } from "../header/header.component";
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  isButtonPostsActive: boolean = true
+
   constructor(private router: Router) {}
 
-  
+  isPosts(b: boolean): void {
+    this.isButtonPostsActive = b
+  }
 }

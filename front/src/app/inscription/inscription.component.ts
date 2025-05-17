@@ -16,11 +16,11 @@ export class InscriptionComponent {
   }
 
   toLogInPage(): void {
-    this.router.navigate([''])
+    this.router.navigate(['/connexion'])
   }
 
   handleSubmit(event: Event): void {
     event.preventDefault()
-    this.router.navigate([''])
+    this.router.navigate(['/connexion'])
   }
 }

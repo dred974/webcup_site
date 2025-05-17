@@ -1,0 +1,74 @@
+header {
+    width: 100%;
+    position: relative;
+    left: 0%;
+    border-bottom: 2px solid white;
+    box-shadow: 0 0 10px white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    h1 {
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        color: white;
+        text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+        margin: 0;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 1rem;
+        margin-left: auto;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        border: none;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 0 5px white;
+    }
+
+    .connexion {
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+    }
+
+    .inscription {
+        &:hover {
+            background-color: transparent;
+            color: white;
+        }
+    }
+}
+
+.main {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    h2 {
+        font-size: 80px;
+        position: relative;
+        left: 2%; top: 290px;
+        mark {
+            background-color: transparent;
+            color: black;
+            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white;
+        }
+    }
+    p {
+        font-size: 35px;
+        position: relative;
+        left: 2%; top: 320px;
+    }
+}

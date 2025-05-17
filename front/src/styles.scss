@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background: radial-gradient(circle at center, #2a2a2a, #000000);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+html, body {
+    margin: 0;
+    background-attachment: fixed;
+    padding: 0;
+    height: auto;
+    width: 100%;
+    background: radial-gradient(circle at center, #2a2a2a, #000000);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    min-height: calc(var(--vh, 1vh) * 100);
+    background: radial-gradient(circle at center, #2a2a2a, #000000);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    color: white;
+    z-index: 1000;
+}
+
+h1 {
+    color: white;
+    font-family: "Dancing Script", cursive;
+}
+
+p {
+    color: white;
+    font-family: "Dancing Script", cursive;
+}
+
+h2 {
+    color: white;
+    font-family: "Dancing Script", cursive;
+}

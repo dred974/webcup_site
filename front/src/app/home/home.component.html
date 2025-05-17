@@ -8,12 +8,10 @@
     <p class="text">Text</p>
     <p class="ecrit">Ecrit par <mark>Pseudo</mark></p>
     <div class="emoji">
-        <button>❤️0</button>
-        <button>💔0</button>
-        <button>😢0</button>
-        <button>😭0</button>
-        <button>😤0</button>
-        <button>😞0</button>
+        <button *ngFor="let emoji of emojis; let i = index"
+            (click)="toggleEmoji(i)">
+            {{ emoji.icon }}{{ emoji.count }}
+        </button>
     </div>
     <!--À voir si j'ai le temps
     <input placeholder="Donnez votre avis...">
@@ -21,9 +19,13 @@
     <p>Avis de la personne</p>
     -->
 </div>
-<div class="mes-postes" *ngIf="!isButtonPostsActive">
+<!-- <div id="capture" style="padding: 20px; background: white; color: black; width: 400px;">
     <h2>Titre</h2>
-    <p class="text">Text</p>
+    <p>Mon texte à exporter</p>
+</div> -->
+<div class="mes-postes" id="capture" *ngIf="!isButtonPostsActive">
+    <h2>{{myPost.title}}</h2>
+    <p class="text">{{myPost.text}}</p>
     <p class="ecrit">Ecrit par <mark>Pseudo</mark></p>
     <div class="emoji">
         <button>❤️0</button>
@@ -33,5 +35,5 @@
         <button>😤0</button>
         <button>😞0</button>
     </div>
-    <button>Téléchargez</button>
+    <button (click)="downloadImage()">Téléchargez</button>
 </div>

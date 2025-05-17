@@ -15,8 +15,7 @@ export class InscriptionComponent {
   constructor(private router: Router) {
   }
 
-  toLogInPage(event: Event): void {
-    // event.preventDefault()
+  toLogInPage(): void {
     this.router.navigate([''])
   }
 

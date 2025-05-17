@@ -1,14 +1,20 @@
 <app-header></app-header>
 <div class="buttons">
-    <button (click)="isPosts(true)">POSTS</button>
-    <button (click)="isPosts(false)">MES POSTS</button>
+    <button (click)="isPosts(true)" class="posts-button">POSTS</button>
+    <button (click)="isPosts(false)" class="my-posts-button">MES POSTS</button>
 </div>
 <div class="posts" *ngIf="isButtonPostsActive">
     <h2>Titre</h2>
-    <p>Text</p>
-    <p>Ecrit par <mark>Pseudo</mark></p>
-    <button>Like</button>
-    <p>Nombre de like</p>
+    <p class="text">Text</p>
+    <p class="ecrit">Ecrit par <mark>Pseudo</mark></p>
+    <div class="emoji">
+        <button>❤️0</button>
+        <button>💔0</button>
+        <button>😢0</button>
+        <button>😭0</button>
+        <button>😤0</button>
+        <button>😞0</button>
+    </div>
     <!--À voir si j'ai le temps
     <input placeholder="Donnez votre avis...">
     <p>Nom de la personne</p>
@@ -17,9 +23,15 @@
 </div>
 <div class="mes-postes" *ngIf="!isButtonPostsActive">
     <h2>Titre</h2>
-    <p>Text</p>
-    <p>Ecrit par <mark>Pseudo</mark></p>
-    <button>Like</button>
-    <p>Nombre de like</p>
-    <button>Partagez</button>
+    <p class="text">Text</p>
+    <p class="ecrit">Ecrit par <mark>Pseudo</mark></p>
+    <div class="emoji">
+        <button>❤️0</button>
+        <button>💔0</button>
+        <button>😢0</button>
+        <button>😭0</button>
+        <button>😤0</button>
+        <button>😞0</button>
+    </div>
+    <button>Téléchargez</button>
 </div>

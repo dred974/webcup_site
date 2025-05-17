@@ -1,8 +1,9 @@
 <form>
     <h1>AJOUTEZ UN POST</h1>
     <p>Titre:</p>
-    <input ngModel placeholder="Entrez un titre..." required>
+    <input placeholder="Entrez un titre..." required>
     <p>Texte:</p>
-    <input ngModel placeholder="Ajoutez votre texte..." required>
-    <button (click)="addingPost()">Publier</button>
+    <textarea class="text" placeholder="Ajoutez votre texte..." required></textarea>
+    <button (click)="addingPost()" class="publier">Publier</button>
+    <button routerLink="/home" class="annuler">Annuler</button>
 </form>

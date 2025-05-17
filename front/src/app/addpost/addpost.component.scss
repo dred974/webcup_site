@@ -1,0 +1,96 @@
+form {
+    background: radial-gradient(circle at center, #2a2a2a, #000000);
+    box-shadow: 0 0 10px white;
+    position: relative;
+    width: 25%;
+    top: 190px;
+    left: 38%;
+    height: 700px;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    border-radius: 16px;
+    h1 {
+        font-size: 50px;
+        position: relative;
+        left: 1%; top: 10%;
+    }
+    p {
+        font-size: 33px;
+        position: relative;
+        top: 15%;
+        left: 1%;
+        margin-top: 30px;
+    }
+    input {
+        background-color: transparent;
+        color: white;
+        font-family: "Dancing Script", cursive;
+        position: relative;
+        height: 40px;
+        left: 1%;
+        top: 17%;
+        width: 90%;
+        font-size: 31px;
+        border: none;
+        &:hover {
+            box-shadow: 0 0 5px white;
+        }
+        &:focus {
+            outline: none;
+            border: 2px solid #fff;
+        }
+    }
+    .text {
+        position: relative;
+        height: 30%;
+        padding: 10px;
+        resize: none;
+        line-height: 1.4;
+        background-color: transparent;
+        color: white;
+        font-family: "Dancing Script", cursive;
+        position: relative;
+        left: 1%;
+        top: 17%;
+        width: 90%;
+        font-size: 31px;
+        border: none;
+    }
+    .publier {
+        border-radius: 4px;
+        box-shadow: 0 0 5px white;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        top: 25%; left: 1%;
+        font-size: 20px;
+        height: 7%;
+        width: 40%;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+            background-color: transparent;
+            color: white;
+        }
+    }
+    .annuler {
+        font-size: 21px;
+        border-radius: 4px;
+        box-shadow: 0 0 5px white;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        top: 25%; left: 1%;
+        font-size: 20px;
+        height: 7%;
+        width: 40%;
+        font-weight: bold;
+        border-radius: 4px;
+        &:hover {
+            background-color: transparent;
+            color: white;
+        }
+    }
+}

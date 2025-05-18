@@ -1,2 +1,6 @@
 fastapi
-uvicorn
+uvicorn[standard]
+sqlalchemy
+pymysql
+passlib[bcrypt]
+python-dotenv

@@ -4,36 +4,29 @@
     <button (click)="isPosts(false)" class="my-posts-button">MES POSTS</button>
 </div>
 <div class="posts" *ngIf="isButtonPostsActive">
-    <h2>Titre</h2>
-    <p class="text">Text</p>
-    <p class="ecrit">Ecrit par <mark>Pseudo</mark></p>
-    <div class="emoji">
-        <button *ngFor="let emoji of emojis; let i = index"
-            (click)="toggleEmoji(i)">
-            {{ emoji.icon }}{{ emoji.count }}
-        </button>
+    <div class="post" *ngFor="let post of allPosts">
+        <h2>{{post.title}}</h2>
+        <p class="text">{{post.text}}</p>
+        <p class="ecrit">Écrit par <mark>{{post.author}}</mark></p>
+        <div class="emoji">
+            <button *ngFor="let icon of ['❤️','💔','😢','😭','😤','😞']; let i = index"
+              (click)="toggleEmoji(post, i)">
+                {{ icon }}{{ post.emojis?.[getEmojiKey(i)] ?? 0 }}
+            </button>
+        </div>
     </div>
-    <!--À voir si j'ai le temps
-    <input placeholder="Donnez votre avis...">
-    <p>Nom de la personne</p>
-    <p>Avis de la personne</p>
-    -->
 </div>
-<!-- <div id="capture" style="padding: 20px; background: white; color: black; width: 400px;">
-    <h2>Titre</h2>
-    <p>Mon texte à exporter</p>
-</div> -->
 <div class="mes-postes" id="capture" *ngIf="!isButtonPostsActive">
-    <h2>{{myPost.title}}</h2>
-    <p class="text">{{myPost.text}}</p>
-    <p class="ecrit">Ecrit par <mark>Pseudo</mark></p>
-    <div class="emoji">
-        <button>❤️0</button>
-        <button>💔0</button>
-        <button>😢0</button>
-        <button>😭0</button>
-        <button>😤0</button>
-        <button>😞0</button>
+    <div class="post" *ngFor="let post of myPosts">
+        <h2>{{post.title}}</h2>
+        <p class="text">{{post.text}}</p>
+        <p class="ecrit"><mark></mark></p>
+        <div class="emoji">
+            <button *ngFor="let icon of ['❤️','💔','😢','😭','😤','😞']; let i = index"
+              (click)="toggleEmoji(post, i)">
+                {{ icon }}{{ post.emojis?.[getEmojiKey(i)] ?? 0 }}
+            </button>
+        </div>
+        <button (click)="downloadImage(post)">Télécharger</button>
     </div>
-    <button (click)="downloadImage()">Téléchargez</button>
 </div>

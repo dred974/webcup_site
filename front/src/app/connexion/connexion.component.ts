@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 
 interface Login {
@@ -14,7 +13,7 @@ interface Login {
   selector: 'app-connexion',
   standalone: true,
   imports: [CommonModule, FormsModule, HttpClientModule],
-  providers: [AuthService],
+  providers: [],
   templateUrl: './connexion.component.html',
   styleUrl: './connexion.component.scss'
 })
@@ -22,7 +21,7 @@ export class ConnexionComponent {
   user: Login = {}
   forgetPassword: boolean = false
 
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router) {
   }
 
   toSignInPage(): void {
@@ -61,32 +60,32 @@ export class ConnexionComponent {
       return;
     }
 
-    const hasRequiredLength = this.user.password!.length >= 8 && this.user.password!.length <= 40;
-    const hasDigit = /\d/.test(this.user.password!);
-    const hasSpecialChar = /[^a-zA-Z0-9]/.test(this.user.password!);
-
+    const hasRequiredLength = this.user.password.length >= 8 && this.user.password.length <= 40;
+    const hasDigit = /\d/.test(this.user.password);
+    const hasSpecialChar = /[^a-zA-Z0-9]/.test(this.user.password);
 
     if (!hasRequiredLength || !hasDigit || !hasSpecialChar) {
       alert("Le mot de passe doit contenir entre 8 et 40 caractères, au moins un chiffre et un caractère spécial.");
       return;
     }
 
+    // 🔍 Récupération des utilisateurs enregistrés
+    const usersRaw = localStorage.getItem('app_users');
+    const users = usersRaw ? JSON.parse(usersRaw) : [];
 
-    this.authService.login({ email: this.user.email, password: this.user.password }).subscribe({
-      next: res => {
-        console.log("Connecté!", res);
-        // par exemple, stocker le user id et token (si token reçu)
-        localStorage.setItem('user_id', res.user_id?.toString());
-        if (res.token) {
-          localStorage.setItem('token', res.token);
-        }
-        this.router.navigate(['/home']); // ou autre page après connexion
-      },
-      error: err => {
-        console.error("Erreur de connexion", err);
-        alert("Email ou mot de passe incorrect");
-      }
-    });
+    // 🧾 Vérification des identifiants
+    const existingUser = users.find((u: any) => u.email === this.user.email && u.password === this.user.password);
+
+    if (!existingUser) {
+      alert("Email ou mot de passe incorrect.");
+      return;
+    }
+
+    // ✅ Connexion réussie : sauvegarde de l'ID de l'utilisateur connecté
+    localStorage.setItem('current_user_id', existingUser.id.toString());
+
+    alert("Connexion réussie !");
+    this.router.navigate(['/home']);
 
   }
 }

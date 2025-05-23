@@ -45,29 +45,24 @@ export class InscriptionComponent {
       return;
     }
 
-    // 🔢 1. Récupération ou initialisation du compteur ID
     let userIdCounter = parseInt(localStorage.getItem('user_id_counter') || '0', 10);
     userIdCounter += 1;
     localStorage.setItem('user_id_counter', userIdCounter.toString());
 
-    // 📋 2. Récupération de la liste existante des utilisateurs
     const usersRaw = localStorage.getItem('app_users');
     const users = usersRaw ? JSON.parse(usersRaw) : [];
 
-    // 👤 3. Création de l'utilisateur avec ID
     const newUser = {
       id: userIdCounter,
       name: this.user.name,
       email: this.user.email,
       password: this.user.password,
-      posts: [] // tu peux aussi ajouter un champ `posts` vide ici si besoin
+      posts: []
     };
 
-    // 💾 4. Sauvegarde dans le localStorage
     users.push(newUser);
     localStorage.setItem('app_users', JSON.stringify(users));
 
-    // 🧠 5. Stocker l’ID du user connecté (optionnel)
     localStorage.setItem('current_user_id', userIdCounter.toString());
 
     alert("Inscription réussie !");

@@ -7,10 +7,8 @@ interface AddPost {
   userId: number,
   postId: number,
   title: string,
-  text: string,
-  author: string
+  text: string
 }
-
 @Component({
   selector: 'app-addpost',
   standalone: true,
@@ -38,8 +36,7 @@ export class AddpostComponent implements OnInit {
       return;
     }
 
-
-    const user = JSON.parse(userIdStr);
+    const userId = parseInt(userIdStr, 10);
 
     const postsRaw = localStorage.getItem('app_posts');
     const posts: AddPost[] = postsRaw ? JSON.parse(postsRaw) : [];
@@ -47,11 +44,10 @@ export class AddpostComponent implements OnInit {
     const nextPostId = posts.length > 0 ? Math.max(...posts.map(p => p.postId)) + 1 : 1;
 
     const newPost: AddPost = {
-      userId: user.userId,
+      userId,
       postId: nextPostId,
       title: this.post.title!,
-      text: this.post.text!,
-      author: user.name,
+      text: this.post.text!
     };
 
     posts.push(newPost);
@@ -59,4 +55,5 @@ export class AddpostComponent implements OnInit {
 
     this.router.navigate(['/home']);
   }
+
 }

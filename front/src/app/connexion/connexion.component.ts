@@ -69,11 +69,9 @@ export class ConnexionComponent {
       return;
     }
 
-    // 🔍 Récupération des utilisateurs enregistrés
     const usersRaw = localStorage.getItem('app_users');
     const users = usersRaw ? JSON.parse(usersRaw) : [];
 
-    // 🧾 Vérification des identifiants
     const existingUser = users.find((u: any) => u.email === this.user.email && u.password === this.user.password);
 
     if (!existingUser) {
@@ -81,7 +79,6 @@ export class ConnexionComponent {
       return;
     }
 
-    // ✅ Connexion réussie : sauvegarde de l'ID de l'utilisateur connecté
     localStorage.setItem('current_user_id', existingUser.id.toString());
 
     alert("Connexion réussie !");

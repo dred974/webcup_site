@@ -44,8 +44,6 @@ export class HomeComponent implements OnInit {
     const postsRaw = localStorage.getItem('app_posts');
     const posts: Post[] = postsRaw ? JSON.parse(postsRaw) : [];
 
-    console.log(posts);
-
     this.allPosts = posts;
     this.myPosts = posts.filter(p => p.userId === userId);
   }
@@ -65,7 +63,6 @@ export class HomeComponent implements OnInit {
 
     if (!post.emojis) post.emojis = { sad: 0, cry: 0, angry: 0, sadness: 0 };
     post.emojis[key] = (post.emojis[key] || 0) + 1;
-    
 
     localStorage.setItem('app_posts', JSON.stringify(this.allPosts));
   }
